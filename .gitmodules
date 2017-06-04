@@ -1,0 +1,18 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "z"]
+	path = z
+	url = https://github.com/rupa/z
+[submodule "vim-plug"]
+	path = vim-plug
+	url = https://github.com/junegunn/vim-plug
+[submodule "repo/autojump"]
+	path = repo/autojump
+	url = https://github.com/wting/autojump
+[submodule "bin/git-mv-changes"]
+	path = bin/git-mv-changes
+	url = https://github.com/MikhailGolubtsov/git-mv-changes

@@ -1,0 +1,32 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+
+- clean: ['~']
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [mkdir -p ~/.vimfile/backup, Create VIM backup dir]
+    - [mkdir -p ~/.vimfile/swap, Create VIM swap dir]
+    - [mkdir -p ~/.vimfile/undo, Create VIM undo dir]
+    - [tic resource/tmux-256color-italic.terminfo, install terminfo]
+    - [tic resource/xterm-256color-italic.terminfo, install terminfo]
+    - [tic resource/xterm-256color.terminfo, install terminfo]
+
+- link:
+    ~/.dotfiles: ''
+    ~/.dir_colors: ~/.dotfiles/config/dircolors.256dark
+    ~/.gitignore: ~/.dotfiles/config/gitignore_global
+    ~/.pylintrc: ~/.dotfiles/config/pylintrc
+    ~/.tmux: ~/.dotfiles/tmux
+    ~/.tmux.conf: ~/.dotfiles/tmux/tmux.conf
+    ~/.vim: ~/.dotfiles/vim
+    ~/.vimrc: ~/.dotfiles/vim/vimrc
+    ~/.zshrc: ~/.dotfiles/config/zshrc
+    ~/.Xresources: ~/.dotfiles/config/Xresources
+    ~/.config/terminator/config: ~/.dotfiles/config/terminator_config
+
+- shell:
+    - [git config --global include.path ~/.dotfiles/config/gitconfig, Add global gitconfig]
+    - [git config --global core.excludesfile ~/.dotfiles/config/gitignore_global, Add global gitignore]
