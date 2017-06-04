@@ -1,0 +1,10 @@
+[user]
+	name = Yilun Lin
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+[core]
+	editor = vim

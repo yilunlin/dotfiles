@@ -1,0 +1,322 @@
+"--------------------------
+" Vundle Setting
+"--------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"-Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"-Plugin 'L9'
+" Git plugin not hosted on GitHub
+"-Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"-Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+"-Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" Plugins
+"--------------------------
+Plugin 'tpope/vim-fugitive'
+Plugin 'jreybert/vimagit'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'mileszs/ack.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tmhedberg/SimpylFold'
+"--------------------------
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"--------------------------
+" General Setting
+"--------------------------
+
+" diable error bells
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+set wildignore=*.o,*.class,*.pyc
+set wildmenu
+
+set ruler
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+let &colorcolumn="80,".join(range(120,999),",")
+
+set nobackup
+
+set lazyredraw
+
+set cursorline
+
+set nu
+
+" regex magic on
+set magic
+" show match brackets
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+"yank to the system register (*) by default
+"set clipboard=unnamed
+
+" Make backspace works like other apps
+set backspace=2
+
+set ffs=unix,dos,mac
+
+" set leader to ,
+let mapleader=","
+let g:mapleader=","
+
+"--------------------------
+" Encoding Setting
+"--------------------------
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
+
+"--------------------------
+" Movement
+"--------------------------
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" highlight last inseted text
+" nnoremap gV `[v`]
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" move around tabs. conflict with the original screen top/bottom
+" comment them out if you want the original H/L
+" go to prev tab
+map <S-H> gT
+" go to next tab
+map <S-L> gt
+
+" map 0 to ^ for going to the first character
+map 0 ^
+
+"--------------------------
+" Colors
+"--------------------------
+syntax on
+
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+
+if has('gui_running')
+  set t_Co=256
+  set background=light
+else
+  set background=dark
+endif
+
+"--------------------------
+" Space and Tabs
+"--------------------------
+
+" Tab Setting {
+set smarttab
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set expandtab
+au FileType Makefile set noexpandtab
+au FileType python set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au FileType sh set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+" }
+
+set autoindent
+set smartindent
+set wrap
+
+set list
+set listchars=tab:→\ ,trail:·,nbsp:¬,precedes:«,extends:»
+
+"--------------------------
+" Status line
+"--------------------------
+set laststatus=2
+
+"--------------------------
+" Filetype Settings
+"--------------------------
+au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
+
+"--------------------------
+" Plugin Settings
+"--------------------------
+
+" solarized
+"----------------------
+" Special characters such as trailing whitespace, tabs, newlines, when
+" displayed using 'set list'
+let g:solarized_visibility = 'default'
+let g:solarized_termcolors = 256
+colorscheme solarized
+
+" vim-airline/vim-airline
+"----------------------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" airline/airline_themes
+"----------------------
+let g:airline_theme = 'light'
+
+"" edkolev/tmuxline.vim
+"----------------------
+let g:tmuxline_powerline_separators = 1
+" 'nightly_fox', 'full', 'tmux', 'righteous', 'crosshair'
+" let g:tmuxline_preset = 'minimal'
+" For tmux to source a snapshot file
+" :TmuxlineSnapShot [file]
+
+" CtrlP
+"----------------------
+let g:ctrlp_map = '<c-o>'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" syntastic
+"----------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
+nnoremap <silent> <F7> :SyntasticToggleMode<CR>
+
+" octol/vim-cpp-enhanced-highlight
+"----------------------
+let g:cpp_class_scope_highlight = 1
+" There are two ways to hightlight template functions. Either
+let g:cpp_experimental_simple_template_highlight = 1
+" which works in most cases, but can be a little slow on large files.
+" Alternatively set
+let g:cpp_experimental_template_highlight = 1
+" which is a faster implementation but has some corner cases where it
+" doesn't work.
+
+let g:cpp_concepts_highlight = 1
+
+" Valloric/YouCompleteMe
+"----------------------
+" INSTALL {
+"	cd ~/.vim/bundle/YouCompleteMe
+"	./install.py --clang-completer
+" }
+let g:ycm_python_binary_path = 'python'
+let g:ycm_complete_in_strings = 1
+let g:ycm_min_num_of_chars_for_completion=2
+
+noremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" christoomey/vim-tmux-navigator
+"----------------------
+
+" easymotion/vim-easymotion
+"----------------------
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key
+" binding.
+" `s{char}{label}`
+" nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+
+" majutsushi/tagbar
+"----------------------
+nnoremap <silent> <F8> :TagbarToggle<CR>
+
+" mileszs/ack.vim"
+"----------------------
+let g:ack_default_options= " -s -H --nocolor --nogroup --smart-case"
+let g:ackhighlight = 1
+" To wrap issue https://github.com/mileszs/ack.vim/issues/18
+set shellpipe=>
+
+" indent-guides"
+"----------------------
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234 "system bg color
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=235
+
+" 'tmhedberg/SimpylFold'
+"----------------------
+let g:SimpylFold_docstring_preview = 1
