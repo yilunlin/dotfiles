@@ -3,4 +3,4 @@ vim/bundle/*
 !vim/bundle/Vundle.git
 tmux/plugins/*
 !tmux/plugins/tpm
-!oh-my-zsh/themes/powerlevel9k
+oh-my-zsh/themes/powerlevel9k

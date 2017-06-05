@@ -5,6 +5,10 @@
 
 - clean: ['~']
 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [./patch_gitconfig.sh >> ~/.gitconfig, Patching ~/.gitconfig]
+
 - link:
     ~/.dotfiles: ''
     ~/.tmux: tmux
@@ -15,7 +19,3 @@
     ~/.zsh: zsh
     ~/.zshrc: zshrc
     oh-my-zsh/themes/powerlevel9k: powerlevel9k
-
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
-    - [./patch_gitconfig.sh >> ~/.gitconfig, Patching ~/.gitconfig]
