@@ -12,6 +12,7 @@
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
     ~/.oh-my-zsh: oh-my-zsh
+    ~/.zsh: zsh
     ~/.zshrc: zshrc
 
 - shell:

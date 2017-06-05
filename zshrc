@@ -52,7 +52,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git zsh-syntax-highlighting)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,16 +91,23 @@ alias tmux="tmux -2"
 # Key bindings
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yllin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then
-  source '/Users/yllin/Downloads/google-cloud-sdk/path.zsh.inc';
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then
+  source '$HOME/google-cloud-sdk/path.zsh.inc';
 fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/yllin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then
-  source '/Users/yllin/Downloads/google-cloud-sdk/completion.zsh.inc';
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then
+  source '$HOME/google-cloud-sdk/completion.zsh.inc';
 fi
 
 if [ -f '$HOME/.myzshrc' ]; then
   source '$HOME/.myzshrc';
 fi
 
+# Source zsh plugins
+#-------------------
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=6
+
+# Put sourcing zsh-syntax-highlighting at the end
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
