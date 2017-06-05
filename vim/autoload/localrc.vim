@@ -1,0 +1,1 @@
+/home/yllin/cros/src/platform/factory/devtools/vim/autoload/localrc.vim

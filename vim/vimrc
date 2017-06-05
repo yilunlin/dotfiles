@@ -320,3 +320,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=235
 " 'tmhedberg/SimpylFold'
 "----------------------
 let g:SimpylFold_docstring_preview = 1
+
+" cros localrc
+"----------------------
+let g:localrc_project_root = '~/cros/src/platform/factory'
+call localrc#load()
