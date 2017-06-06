@@ -13,9 +13,6 @@
 [submodule "powerlevel9k"]
 	path = powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k
-[submodule "shellcheck"]
-	path = shellcheck
-	url = https://github.com/koalaman/shellcheck
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
