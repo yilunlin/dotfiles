@@ -11,6 +11,7 @@
 
 - link:
     ~/.dotfiles: ''
+    ~/.gitignore_global: gitignore_global
     ~/.pylintrc: pylintrc
     ~/.tmux: tmux
     ~/.tmux.conf: tmux/tmux.conf
