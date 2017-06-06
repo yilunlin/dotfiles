@@ -93,17 +93,17 @@ alias tmux="tmux -2"
 # Key bindings
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then
-  source '$HOME/google-cloud-sdk/path.zsh.inc';
+if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
+  source ~/google-cloud-sdk/path.zsh.inc;
 fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then
-  source '$HOME/google-cloud-sdk/completion.zsh.inc';
+if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
+  source ~/google-cloud-sdk/completion.zsh.inc;
 fi
 
-if [ -f '$HOME/.myzshrc' ]; then
-  source '$HOME/.myzshrc';
+if [ -f ~/.myzshrc ]; then
+  source ~/.myzshrc;
 fi
 
 # Source zsh plugins
