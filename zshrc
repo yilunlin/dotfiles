@@ -52,7 +52,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git)
+plugins=(git docker encode64 pip pylint python cp colored-man-pages colorize \
+         cp sudo)
 
 source $ZSH/oh-my-zsh.sh
 
