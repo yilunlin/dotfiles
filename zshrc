@@ -60,6 +60,8 @@ umask 022
 
 # User configuration
 
+setopt magic_equal_subst
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
