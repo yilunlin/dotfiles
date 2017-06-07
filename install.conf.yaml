@@ -11,6 +11,7 @@
 
 - link:
     ~/.dotfiles: ''
+    ~/.dir_colors: dircolors.256dark
     ~/.gitignore_global: gitignore_global
     ~/.pylintrc: pylintrc
     ~/.tmux: tmux
