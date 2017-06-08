@@ -113,6 +113,11 @@ set backspace=2
 
 set ffs=unix,dos,mac
 
+" Change backup/swap/undor files dir.
+set backupdir=~/.vimfile/backup//
+set directory=~/.vimfile/swap//
+set undodir=~/.vimfile/undo//
+
 " set leader to ,
 let mapleader=","
 let g:mapleader=","
