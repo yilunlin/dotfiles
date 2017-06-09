@@ -168,3 +168,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=6
 
 # Put sourcing zsh-syntax-highlighting at the end
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
