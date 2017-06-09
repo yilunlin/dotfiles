@@ -135,7 +135,11 @@ eval `dircolors ~/.dir_colors`
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# FZF & RG
+[ -f ~/.fzf.bash ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+#bindkey '"\C-p": vim $(fzf);'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

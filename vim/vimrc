@@ -188,12 +188,20 @@ au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 " Selfmake Command
 "----------------------
 
-" fzf.vim
+" fzf.vim and ripgrep (rg)
 "----------------------
+set grepprg=rg\ --vimgrep
+" Make a rg command Fl, follow symlink
+command! -bang -nargs=* Fl call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+" Make a rg command F
+command! -bang -nargs=* F call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
 noremap <leader>p :Files<CR>
 noremap <leader>o :Buffers<CR>
 noremap <leader>f :Lines<CR>
 noremap <leader><leader> :BLines<CR>
+noremap <leader>r :F<CR>
+noremap <leader>t :Tags<CR>
 
 " This is the default extra key bindings
 let g:fzf_action = {
