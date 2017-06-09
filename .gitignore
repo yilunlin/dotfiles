@@ -1,6 +1,5 @@
 !.gitignore
-vim/bundle/*
-!vim/bundle/Vundle.git
+vim/plugged/*
 tmux/plugins/*
 !tmux/plugins/tpm
 oh-my-zsh/themes/powerlevel9k

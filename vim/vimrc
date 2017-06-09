@@ -4,58 +4,35 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"-Plugin 'L9'
-" Git plugin not hosted on GitHub
-"-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-"-Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " Plugins
 "--------------------------
-Plugin 'tpope/vim-fugitive'
-Plugin 'jreybert/vimagit'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'vim-scripts/YankRing.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'mileszs/ack.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tmhedberg/SimpylFold'
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'vim-syntastic/syntastic'
+Plug 'airblade/vim-gitgutter'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'Valloric/YouCompleteMe'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'mileszs/ack.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tmhedberg/SimpylFold'
+" Initialize plugin system
+call plug#end()
 "--------------------------
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "

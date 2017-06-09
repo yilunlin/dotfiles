@@ -24,4 +24,5 @@
     ~/.oh-my-zsh: oh-my-zsh
     ~/.zsh: zsh
     ~/.zshrc: zshrc
+    vim/autoload/plug.vim: vim-plug/plug.vim
     oh-my-zsh/themes/powerlevel9k: powerlevel9k
