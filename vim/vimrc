@@ -27,7 +27,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'mileszs/ack.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 " Initialize plugin system
 call plug#end()
@@ -185,6 +184,9 @@ au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 "--------------------------
 " Plugin Settings
 "--------------------------
+
+" Selfmake Command
+"----------------------
 
 " fzf.vim
 "----------------------
