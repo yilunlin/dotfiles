@@ -29,7 +29,6 @@ Plug 'vim-scripts/YankRing.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'mileszs/ack.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tmhedberg/SimpylFold'
 " Initialize plugin system
 call plug#end()
 "--------------------------
@@ -345,7 +344,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=235
 
 " 'tmhedberg/SimpylFold'
 "----------------------
-let g:SimpylFold_docstring_preview = 1
+"let g:SimpylFold_docstring_preview = 1
 
 " cros localrc
 "----------------------
