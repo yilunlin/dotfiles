@@ -1,1 +1,1 @@
-/home/yllin/dotfiles/vim-plug/plug.vim
+../../vim-plug/plug.vim
