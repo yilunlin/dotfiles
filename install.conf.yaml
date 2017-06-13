@@ -7,7 +7,6 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [./patch_gitconfig.sh >> ~/.gitconfig, Patching ~/.gitconfig]
     - [mkdir -p ~/.vimfile/backup, Create VIM backup dir]
     - [mkdir -p ~/.vimfile/swap, Create VIM swap dir]
     - [mkdir -p ~/.vimfile/undo, Create VIM undo dir]
@@ -15,7 +14,7 @@
 - link:
     ~/.dotfiles: ''
     ~/.dir_colors: dircolors.256dark
-    ~/.gitignore_global: gitignore_global
+    ~/.gitignore: gitignore_global
     ~/.pylintrc: pylintrc
     ~/.tmux: tmux
     ~/.tmux.conf: tmux/tmux.conf
@@ -25,3 +24,7 @@
     ~/.zsh: zsh
     ~/.zshrc: zshrc
     oh-my-zsh/themes/powerlevel9k: powerlevel9k
+
+- shell:
+    - [git config --global include.path .dotfiles/gitconfig, Patching ~/.gitconfig]
+    - [git config --global core.excludefiles .gitignore, Patching ~/.gitconfig]
