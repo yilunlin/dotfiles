@@ -11,6 +11,7 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
+Plug 'chrisbra/SudoEdit.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
@@ -242,6 +243,10 @@ let g:fzf_colors =
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" chrisbra/SudoEdit.vim
+"----------------------
+
 
 " solarized
 "----------------------
