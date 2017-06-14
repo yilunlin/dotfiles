@@ -26,5 +26,5 @@
     oh-my-zsh/themes/powerlevel9k: powerlevel9k
 
 - shell:
-    - [git config --global include.path .dotfiles/gitconfig, Patching ~/.gitconfig]
-    - [git config --global core.excludefiles .gitignore, Patching ~/.gitconfig]
+    - [git config --global include.path ~/.dotfiles/gitconfig, Add global gitconfig]
+    - [git config --global core.excludesfile ~/.gitignore_global, Add global gitignore]
