@@ -115,7 +115,12 @@ umask 022
 setopt magic_equal_subst
 
 # load dir_color settings
-eval `dircolors ~/.dir_colors`
+
+if [ -x "$(command -v dircolors)" ]; then
+  eval `dircolors ~/.dir_colors`
+elif [ -x "$(command -v gdircolors)" ]; then
+  eval `gdircolors ~/.dir_colors`
+fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
