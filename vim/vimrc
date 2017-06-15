@@ -11,6 +11,7 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
+Plug 'Chiel92/vim-autoformat'
 Plug 'chrisbra/SudoEdit.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
@@ -197,6 +198,15 @@ au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 
 " Selfmake Command
 "----------------------
+
+" Chiel92/vim-autoformat {{{
+let g:formatdef_yapf = "'yapf --style=\"{based_on_style:chromium,indent_width:'.&shiftwidth.(&textwidth ? ',column_limit:'.&textwidth : '').',ALLOW_MULTILINE_LAMBDAS: true, I18N_FUNCTION_CALL: func_not__exist}\" -l '.a:firstline.'-'.a:lastline"
+let g:formatters_python=['yapf']
+let g:formatters_javascript=['clangformat']
+let g:autoformat_autoindent=0
+let g:autoformat_retab=0
+let g:autoformat_remove_trailing_spaces=0
+" }}}
 
 " fzf.vim and ripgrep (rg)
 "----------------------
