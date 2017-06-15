@@ -361,7 +361,7 @@ map <Leader>k <Plug>(easymotion-k)
 
 " majutsushi/tagbar
 "----------------------
-nnoremap <silent> <F8> :TagbarToggle<CR>
+nnoremap <silent> <S-Tab> :TagbarToggle<CR>
 
 " nerdtree-tabs
 "----------------------
