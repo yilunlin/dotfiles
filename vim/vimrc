@@ -1,13 +1,6 @@
-"--------------------------
-" Vundle Setting
-"--------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-
-" Plugins
-"--------------------------
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+set nocompatible
+filetype off
+" installed plugins {{{
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
@@ -40,167 +33,96 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'vim-syntastic/syntastic'
-" Initialize plugin system
 call plug#end()
-"--------------------------
-
-
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-"--------------------------
-" General Setting
-"--------------------------
-
-" diable error bells
+" }}}
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
 set wildignore=*.o,*.class,*.pyc
 set wildmenu
-
 set ruler
-
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
-
 let &colorcolumn="80,".join(range(120,999),",")
-
 set nobackup
-
 set lazyredraw
-
 set cursorline
-
 set nu
-
-" regex magic on
 set magic
-" show match brackets
 set showmatch
-" How many tenths of a second to blink when matching brackets
 set mat=2
-
-"yank to the system register (*) by default
-"set clipboard=unnamed
-
-" Make backspace works like other apps
 set backspace=2
-
 set ffs=unix,dos,mac
-
-" Change backup/swap/undor files dir.
+set grepprg=rg\ --vimgrep
+" cache settings {{{
 set backupdir=~/.vimfile/backup//
 set directory=~/.vimfile/swap//
 set undodir=~/.vimfile/undo//
-
 set noswapfile
-
-" set leader to ,
-let mapleader=" "
-let g:mapleader=" "
-
-"--------------------------
-" Encoding Setting
-"--------------------------
+" }}}
+" encoding {{{
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
-
-"--------------------------
-" Movement
-"--------------------------
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-
-" highlight last inseted text
-" nnoremap gV `[v`]
-
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" move around tabs. conflict with the original screen top/bottom
-" comment them out if you want the original H/L
-" go to prev tab
-map <S-H> gT
-" go to next tab
-map <S-L> gt
-
-" map 0 to ^ for going to the first character
-map 0 ^
-
-"--------------------------
-" Colors
-"--------------------------
+" }}}
 syntax on
-
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
-
 if has('gui_running')
   set t_Co=256
   set background=light
 else
   set background=dark
 endif
-
-"--------------------------
-" Space and Tabs
-"--------------------------
-
 " Tab Setting {
 set smarttab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 set expandtab
-au FileType Makefile set noexpandtab
-au FileType python set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-au FileType sh set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 " }
-
 set autoindent
 set smartindent
 set wrap
-
 set list
 set listchars=tab:→\ ,trail:·,nbsp:¬,precedes:«,extends:»
-
-"--------------------------
-" Status line
-"--------------------------
 set laststatus=2
 
-"--------------------------
-" Filetype Settings
-"--------------------------
+" custom mappings {{{
+let mapleader=" "
+let g:mapleader=" "
+noremap 0 ^
+noremap ^ 0
+" visual up/down move
+nnoremap j gj
+nnoremap k gk
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+" shift between tabs
+map <S-H> gT
+map <S-L> gt
+" }}}
+
+" filetype settings {{{
 au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
+au FileType Makefile set noexpandtab
+au FileType python set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au FileType sh set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+" }}}
 
-"--------------------------
-" Plugin Settings
-"--------------------------
-
-" Selfmake Command
-"----------------------
+" altercation/vim-colors-solarized {{{
+let g:solarized_visibility = 'default'
+let g:solarized_termcolors = 256
+colorscheme solarized
+" }}}
 
 " Chiel92/vim-autoformat {{{
 let g:formatdef_yapf = "'yapf --style=\"{based_on_style:chromium,indent_width:'.&shiftwidth.(&textwidth ? ',column_limit:'.&textwidth : '').',ALLOW_MULTILINE_LAMBDAS: true, I18N_FUNCTION_CALL: func_not__exist}\" -l '.a:firstline.'-'.a:lastline"
@@ -211,36 +133,42 @@ let g:autoformat_retab=0
 let g:autoformat_remove_trailing_spaces=0
 " }}}
 
-" fzf.vim and ripgrep (rg)
-"----------------------
-set grepprg=rg\ --vimgrep
-" Make a rg command Fl, follow symlink
-command! -bang -nargs=* Rl call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-" Make a rg command F
-command! -bang -nargs=* R call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+" chrisbra/SudoEdit.vim {{{
+" }}}
 
-noremap <leader>p :Files<CR>
-noremap <leader>o :Buffers<CR>
-noremap <leader>f :Lines<CR>
-noremap <leader><leader> :BLines<CR>
-noremap <leader>r :R<CR>
-noremap <leader>t :Tags<CR>
+" christoomey/vim-tmux-navigator {{{
+" }}}
 
-" This is the default extra key bindings
+" easymotion/vim-easymotion {{{
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+nmap s <Plug>(easymotion-overwin-f2)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+" }}}
+
+" edkolev/tmuxline.vim {{{
+let g:tmuxline_powerline_separators = 1
+" :TmuxlineSnapShot [file] "For tmux to source a snapshot file
+" }}}
+
+" elzr/vim-json {{{
+" }}}
+
+" jistr/vim-nerdtree-tabs {{{
+let g:nerdtree_tabs_open_on_new_tab = 0
+let g:nerdtree_tabs_synchronize_view = 1
+" }}}
+
+" junegunn/fzf, junegunn/fzf'.vim {{{
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
-
-" In Neovim, you can set up fzf window using a Vim command
-"let g:fzf_layout = { 'window': 'enew' }
-"let g:fzf_layout = { 'window': '-tabnew' }
-
-" Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -254,137 +182,74 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+command! -bang -nargs=* Rl call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+command! -bang -nargs=* R call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+noremap <leader>p :Files<CR>
+noremap <leader>o :Buffers<CR>
+noremap <leader>f :Lines<CR>
+noremap <leader><leader> :BLines<CR>
+noremap <leader>r :R<CR>
+noremap <leader>t :Tags<CR>
+" }}}
 
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
+" majutsushi/tagbar {{{
+nnoremap <silent><S-Tab> :TagbarToggle<CR>
+" }}}
 
-" chrisbra/SudoEdit.vim
-"----------------------
+" mattn/emmet-vim {{{
+" }}}
 
 " mbbill/undotree {{{
 nnoremap <silent><leader>u :UndotreeToggle<cr>
 " }}}
 
-" solarized
-"----------------------
-" Special characters such as trailing whitespace, tabs, newlines, when
-" displayed using 'set list'
-let g:solarized_visibility = 'default'
-let g:solarized_termcolors = 256
-colorscheme solarized
-
-" vim-airline/vim-airline
-"----------------------
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-" airline/airline_themes
-"----------------------
-let g:airline_theme = 'light'
-
-"" edkolev/tmuxline.vim
-"----------------------
-let g:tmuxline_powerline_separators = 1
-" 'nightly_fox', 'full', 'tmux', 'righteous', 'crosshair'
-" let g:tmuxline_preset = 'minimal'
-" For tmux to source a snapshot file
-" :TmuxlineSnapShot [file]
-
-" CtrlP
-"----------------------
-let g:ctrlp_map = '<c-o>'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-" syntastic
-"----------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-
-let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
-nnoremap <silent> <F7> :SyntasticToggleMode<CR>
-
-" octol/vim-cpp-enhanced-highlight
-"----------------------
-let g:cpp_class_scope_highlight = 1
-" There are two ways to hightlight template functions. Either
-let g:cpp_experimental_simple_template_highlight = 1
-" which works in most cases, but can be a little slow on large files.
-" Alternatively set
-let g:cpp_experimental_template_highlight = 1
-" which is a faster implementation but has some corner cases where it
-" doesn't work.
-
-let g:cpp_concepts_highlight = 1
-
-" Valloric/YouCompleteMe
-"----------------------
-" INSTALL {
-"	cd ~/.vim/bundle/YouCompleteMe
-"	./install.py --clang-completer
-" }
-let g:ycm_python_binary_path = 'python'
-let g:ycm_complete_in_strings = 1
-let g:ycm_min_num_of_chars_for_completion=2
-
-noremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" christoomey/vim-tmux-navigator
-"----------------------
-
-" easymotion/vim-easymotion
-"----------------------
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Jump to anywhere you want with minimal keystrokes, with just one key
-" binding.
-" `s{char}{label}`
-" nmap s <Plug>(easymotion-overwin-f)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-
-" majutsushi/tagbar
-"----------------------
-nnoremap <silent> <S-Tab> :TagbarToggle<CR>
-
-" nerdtree-tabs
-"----------------------
-let g:nerdtree_tabs_open_on_new_tab = 0
-let g:nerdtree_tabs_synchronize_view = 1
-
-" indent-guides"
-"----------------------
+" nathanaelkane/vim-indent-guides {{{
 let g:indent_guides_auto_colors=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234 "system bg color
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=235
+" }}}
 
-" 'tmhedberg/SimpylFold'
-"----------------------
-"let g:SimpylFold_docstring_preview = 1
+" rhysd/clever-f.vim {{{
+" }}}
 
-" cros localrc
+" octol/vim-cpp-enhanced-highlight {{{
+let g:cpp_class_scope_highlight = 1
+"let g:cpp_experimental_template_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+" }}}
+
+" Valloric/YouCompleteMe {{{
 "----------------------
+let g:ycm_python_binary_path = 'python'
+let g:ycm_complete_in_strings = 1
+let g:ycm_min_num_of_chars_for_completion=2
+noremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" }}}
+
+" vim-airline/vim-airline {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" }}}
+
+" vim-airline/airline_themes {{{
+let g:airline_theme = 'light'
+" }}}
+
+" vim-syntastic/syntastic {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
+nnoremap <silent> <F7> :SyntasticToggleMode<CR>
+" }}}
+
+" ChrormeOS settings {{{
 let g:localrc_project_root = '~/cros/src/platform/factory'
 call localrc#load()
+" }}}
