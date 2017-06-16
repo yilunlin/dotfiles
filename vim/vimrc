@@ -106,6 +106,8 @@ set backupdir=~/.vimfile/backup//
 set directory=~/.vimfile/swap//
 set undodir=~/.vimfile/undo//
 
+set noswapfile
+
 " set leader to ,
 let mapleader=" "
 let g:mapleader=" "
