@@ -142,7 +142,7 @@ fi
 
 # FZF & RG
 [ -f ~/.fzf.bash ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #bindkey '"\C-p": vim $(fzf);'
 
