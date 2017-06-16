@@ -15,6 +15,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'jreybert/vimagit'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/webapi-vim'
@@ -199,6 +200,11 @@ noremap <leader>f :Lines<CR>
 noremap <leader><leader> :BLines<CR>
 noremap <leader>r :R<CR>
 noremap <leader>t :Tags<CR>
+" }}}
+
+" kshenoy/vim-signature {{{
+let g:SignatureMarkTextHLDynamic = 1
+let g:SignatureMarkerTextHLDynamic = 1
 " }}}
 
 " majutsushi/tagbar {{{
