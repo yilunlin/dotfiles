@@ -25,6 +25,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/webapi-vim'
+Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
@@ -263,6 +264,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " chrisbra/SudoEdit.vim
 "----------------------
 
+" mbbill/undotree {{{
+nnoremap <silent><leader>u :UndotreeToggle<cr>
+" }}}
 
 " solarized
 "----------------------
