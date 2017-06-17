@@ -113,6 +113,7 @@ map <C-l> <C-W>l
 " shift between tabs
 map <S-H> gT
 map <S-L> gt
+noremap <Leader>w :w<CR>
 " }}}
 
 " filetype settings {{{
