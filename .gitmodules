@@ -22,3 +22,6 @@
 [submodule "vim-plug"]
 	path = vim-plug
 	url = https://github.com/junegunn/vim-plug
+[submodule "repo/autojump"]
+	path = repo/autojump
+	url = https://github.com/wting/autojump

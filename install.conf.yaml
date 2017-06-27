@@ -10,6 +10,7 @@
     - [mkdir -p ~/.vimfile/backup, Create VIM backup dir]
     - [mkdir -p ~/.vimfile/swap, Create VIM swap dir]
     - [mkdir -p ~/.vimfile/undo, Create VIM undo dir]
+    - [cd repo/autojump && ./install.py, Installing autojump]
 
 - link:
     ~/.dotfiles: ''
