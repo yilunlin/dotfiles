@@ -9,7 +9,7 @@
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-init-hook=sys.path.append('~/cros/src/platform/factory/py_pkg')
+init-hook=sys.path.append(['~/cros/src/platform/factory/py_pkg', '~/cros/src/platform/factory/py'])
 # Profiled execution.
 #profile=no
 
