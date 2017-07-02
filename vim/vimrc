@@ -30,7 +30,10 @@ Plug 'rhysd/clever-f.vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -248,6 +251,10 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 "}}}
+
+" terryma/vim-multiple-cursors {{{
+let g:multi_cursor_use_default_mapping=0
+" }}}
 
 " Valloric/YouCompleteMe {{{
 let g:ycm_python_binary_path = 'python'
