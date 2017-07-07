@@ -260,7 +260,8 @@ let g:multi_cursor_use_default_mapping=0
 let g:ycm_python_binary_path = 'python'
 let g:ycm_complete_in_strings = 1
 let g:ycm_min_num_of_chars_for_completion=2
-noremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_goto_buffer_command='new-or-existing-tab'
+noremap gd :YcmCompleter GoTo<CR>
 " }}}
 
 " vim-airline/vim-airline {{{
