@@ -168,6 +168,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmux="tmux -2"
 alias py="python"
+alias g="git"
+alias t="tig"
+alias ag="ag --color-line-number '1;35' --color-path '1;31' --color-match '1;37'"
 #
 # Key bindings
 
