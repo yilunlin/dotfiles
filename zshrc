@@ -1,3 +1,4 @@
+export TERM="screen-256color"
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 # If you come from bash you might have to change your $PATH.
