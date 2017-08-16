@@ -118,6 +118,8 @@ map <C-l> <C-W>l
 map <S-H> gT
 map <S-L> gt
 noremap <Leader>w :w<CR>
+" redraw
+noremap <leader>r :redraw!<CR>
 " }}}
 
 " filetype settings {{{
@@ -209,7 +211,6 @@ noremap <leader>p :Files<CR>
 noremap <leader>o :Buffers<CR>
 noremap <leader>f :Lines<CR>
 noremap <leader><leader> :BLines<CR>
-noremap <leader>r :R<CR>
 noremap <leader>t :Tags<CR>
 " }}}
 
