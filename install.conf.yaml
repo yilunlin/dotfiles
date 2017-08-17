@@ -14,19 +14,19 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.dir_colors: dircolors.256dark
-    ~/.gitignore: gitignore_global
-    ~/.pylintrc: pylintrc
-    ~/.tmux: tmux
-    ~/.tmux.conf: tmux/tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vim/vimrc
-    ~/.oh-my-zsh: oh-my-zsh
-    ~/.zsh: zsh
-    ~/.zshrc: zshrc
+    ~/.dir_colors: ~/.dotfiles/config/dircolors.256dark
+    ~/.gitignore: ~/.dotfiles/config/gitignore_global
+    ~/.pylintrc: ~/.dotfiles/config/pylintrc
+    ~/.tmux: ~/.dotfiles/tmux
+    ~/.tmux.conf: ~/.dotfiles/tmux/tmux.conf
+    ~/.vim: ~/.dotfiles/vim
+    ~/.vimrc: ~/.dotfiles/vim/vimrc
+    ~/.oh-my-zsh: ~/.dotfiles/oh-my-zsh
+    ~/.zsh: ~/.dotfiles/zsh
+    ~/.zshrc: ~/.dotfiles/config/zshrc
     ~/.Xresources: ~/.dotfiles/config/Xresources
     oh-my-zsh/themes/powerlevel9k: powerlevel9k
 
 - shell:
-    - [git config --global include.path ~/.dotfiles/gitconfig, Add global gitconfig]
+    - [git config --global include.path ~/.dotfiles/config/gitconfig, Add global gitconfig]
     - [git config --global core.excludesfile ~/.gitignore_global, Add global gitignore]
