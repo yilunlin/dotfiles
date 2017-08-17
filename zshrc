@@ -125,6 +125,7 @@ umask 022
 # User configuration
 
 setopt magic_equal_subst
+setopt no_share_history
 
 # load dir_color settings
 
