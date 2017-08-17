@@ -24,6 +24,7 @@
     ~/.oh-my-zsh: oh-my-zsh
     ~/.zsh: zsh
     ~/.zshrc: zshrc
+    ~/.Xresources: ~/.dotfiles/config/Xresources
     oh-my-zsh/themes/powerlevel9k: powerlevel9k
 
 - shell:
