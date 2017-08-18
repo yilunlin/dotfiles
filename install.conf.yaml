@@ -29,4 +29,4 @@
 
 - shell:
     - [git config --global include.path ~/.dotfiles/config/gitconfig, Add global gitconfig]
-    - [git config --global core.excludesfile ~/.gitignore_global, Add global gitignore]
+    - [git config --global core.excludesfile ~/.dotfiles/config/gitignore_global, Add global gitignore]
