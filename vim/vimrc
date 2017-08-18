@@ -54,7 +54,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
-let &colorcolumn="80,".join(range(120,999),",")
+let &colorcolumn="80,".join(range(100,999),",")
 set nobackup
 set lazyredraw
 set cursorline
@@ -141,6 +141,8 @@ nmap <Leader>gr <Plug>GitGutterUndoHunk
 let g:solarized_visibility = 'default'
 let g:solarized_termcolors = 256
 colorscheme solarized
+hi cursorline ctermbg=235
+hi colorcolumn ctermbg=236
 " }}}
 
 " Chiel92/vim-autoformat {{{
