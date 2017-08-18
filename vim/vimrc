@@ -9,6 +9,7 @@ Glug codefmt-google
 Glug gtimporter
 Glug ft-java
 source /usr/share/vim/google/gtags.vim
+command Jsort !/google/src/head/depot/google3/tools/java/fix_imports.py %
 " }}}
 "
 " installed plugins {{{
