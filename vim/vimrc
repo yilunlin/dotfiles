@@ -93,6 +93,7 @@ set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 set expandtab
+inoremap <S-Tab> <C-V><Tab>
 " }
 set autoindent
 set smartindent
@@ -127,6 +128,7 @@ au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 au FileType Makefile set noexpandtab
 au FileType python set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 au FileType sh set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au FileType c,cpp set shiftwidth=4 tabstop=4 softtabstop=4
 " }}}
 
 " airblade/vim-gitgutter {{{
@@ -267,6 +269,7 @@ let g:ycm_python_binary_path = 'python'
 let g:ycm_complete_in_strings = 1
 let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_goto_buffer_command='new-or-existing-tab'
+let g:ycm_key_list_previous_completion = ['<Up>']
 noremap gd :YcmCompleter GoTo<CR>
 " }}}
 
