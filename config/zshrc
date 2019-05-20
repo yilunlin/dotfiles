@@ -5,21 +5,32 @@ export TERM=xterm-256color
 
 source $HOME/.dotfiles/zsh/antigen/antigen.zsh
 antigen use oh-my-zsh
-antigen theme win0err/aphrodite-terminal-theme aphrodite
-antigen bundle git
-antigen bundle pip
-antigen bundle docker
-antigen bundle pylint
-antigen bundle python
-antigen bundle cp
+antigen use oh-my-zsh
 antigen bundle colored-man-pages
 antigen bundle colorize
-antigen bundle cp
-antigen bundle sudo
 antigen bundle command-not-found
+antigen bundle compleat
+antigen bundle copyfile
+antigen bundle cp
+antigen bundle docker
+antigen bundle extract
+antigen bundle gitfast
+antigen bundle httpie
+antigen bundle jsontools
+antigen bundle pip
+antigen bundle pylint
+antigen bundle python
+antigen bundle repo
+antigen bundle sublime
+antigen bundle systemd
+antigen bundle tig
+antigen bundle tmux
+antigen bundle urltools
+antigen bundle vi-mode
 antigen bundle zdharma/zsh-diff-so-fancy
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme win0err/aphrodite-terminal-theme aphrodite
 antigen apply
 
 # Uncomment the following line to use case-sensitive completion.
