@@ -26,7 +26,6 @@ antigen bundle systemd
 antigen bundle tig
 antigen bundle tmux
 antigen bundle urltools
-antigen bundle vi-mode
 antigen bundle zdharma/zsh-diff-so-fancy
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
