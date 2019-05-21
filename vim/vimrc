@@ -405,9 +405,11 @@ nnoremap <silent><leader>u :UndotreeToggle<cr>
 " }}}
 
 " indentLine {{{
-let g:indentLine_leadingSpaceEnabled=0
+let g:indentLine_enabled = 0
+let g:indentLine_leadingSpaceEnabled = 0
 let g:indentLine_char="┊"
 noremap <Leader>ig :IndentLinesToggle<CR>
+au FileType python let g:indentLine_enabled = 1
 " }}}
 
 " rhysd/clever-f.vim {{{
