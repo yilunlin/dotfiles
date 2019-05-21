@@ -75,6 +75,7 @@ set lazyredraw
 set cursorline
 set cursorcolumn
 set nu
+set relativenumber
 set magic
 set showmatch
 set mat=2
