@@ -17,6 +17,7 @@ Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'hzchirs/vim-material'
 Plug 'itspriddle/ZoomWin'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'jreybert/vimagit'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
