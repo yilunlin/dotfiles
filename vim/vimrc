@@ -225,13 +225,14 @@ function! PrevHunkAllBuffers()
   endwhile
 endfunction
 
-nmap <Leader>N :call NextHunkAllBuffers()<CR>
-nmap <Leader>M :call PrevHunkAllBuffers()<CR>
-nmap <Leader>n  <Plug>GitGutterNextHunk<CR>
-nmap <Leader>m  <Plug>GitGutterPrevHunk<CR>
-nmap <Leader>gt :GitGutterToggle<CR>
 nmap <Leader>ga <Plug>GitGutterStageHunk
+nmap <Leader>gf :GitGutterFold<CR>
 nmap <Leader>gr <Plug>GitGutterUndoHunk
+nmap <Leader>gt :GitGutterToggle<CR>
+nmap <Leader>M :call PrevHunkAllBuffers()<CR>
+nmap <Leader>m  <Plug>GitGutterPrevHunk<CR>
+nmap <Leader>N :call NextHunkAllBuffers()<CR>
+nmap <Leader>n  <Plug>GitGutterNextHunk<CR>
 " Update signs on saving
 autocmd BufWritePost * GitGutter
 " }}}
