@@ -497,6 +497,10 @@ let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
 nnoremap <silent> <F7> :SyntasticToggleMode<CR>
 " }}}
 
+" ZoomWin {{{
+nmap <leader>z <C-w>o
+" }}}
+
 " ChromeOS settings {{{
 let g:localrc_project_root = '~/cros/src/platform/factory'
 call localrc#load()
