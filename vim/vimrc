@@ -244,7 +244,7 @@ autocmd BufWritePost * GitGutter
 " let g:gruvbox_termcolors=16
 color gruvbox
 " hi cursorline ctermbg=8
-hi colorcolumn ctermbg=238
+hi colorcolumn ctermbg=23
 " }}}
 
 " NeoSolarized {{{
