@@ -150,6 +150,9 @@ if [ -f ~/.myzshrc ]; then
   source ~/.myzshrc;
 fi
 
+# Path
+export PATH=$PATH:$HOME/.local/bin:
+
 # Source zsh plugins
 #-------------------
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=6
