@@ -24,6 +24,7 @@ Plug 'jreybert/vimagit'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
+Plug 'kamykn/spelunker.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
@@ -178,7 +179,7 @@ nmap <Leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
 au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 au BufNewFile,BufRead *.log,*_log,dmesg,log :set filetype=log
 au BufNewFile,BufRead Makefile.*,toolchain.inc :set filetype=make
-au FileType python set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au FileType python set shiftwidth=4 tabstop=2 softtabstop=2 expandtab
 au FileType sh set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 au FileType c,cpp,make,ld set shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au FileType json set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
@@ -227,14 +228,17 @@ function! PrevHunkAllBuffers()
   endwhile
 endfunction
 
-nmap <Leader>ga <Plug>GitGutterStageHunk
+nmap <Leader>ga <Plug>(GitGutterStageHunk)
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)
+vmap <Leader>ga <Plug>(GitGutterStageHunk)
+vmap <Leader>gu <Plug>(GitGutterUndoHunk)
+nmap <Leader>gp <Plug>(GitGutterPreviewHunk)
 nmap <Leader>gf :GitGutterFold<CR>
-nmap <Leader>gr <Plug>GitGutterUndoHunk
 nmap <Leader>gt :GitGutterToggle<CR>
 nmap <Leader>M :call PrevHunkAllBuffers()<CR>
-nmap <Leader>m  <Plug>GitGutterPrevHunk<CR>
+nmap <Leader>m  <Plug>(GitGutterPrevHunk)
 nmap <Leader>N :call NextHunkAllBuffers()<CR>
-nmap <Leader>n  <Plug>GitGutterNextHunk<CR>
+nmap <Leader>n  <Plug>(GitGutterNextHunk)
 " Update signs on saving
 autocmd BufWritePost * GitGutter
 " }}}
@@ -497,7 +501,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
+let g:syntastic_python_pylint_args = '--rcfile=.pylintrc'
 let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "passive_filetypes": ["asm"] }

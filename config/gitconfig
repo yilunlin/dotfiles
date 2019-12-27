@@ -1,11 +1,12 @@
 [user]
 	name = Yilun Lin
 [alias]
-	co = checkout
 	br = branch
 	ci = commit -s
-	st = status
+	co = checkout
 	cp = cherry-pick
+	rb = rebase
+	st = status
 	unstage = reset HEAD --
 [core]
 	editor = vim
