@@ -24,6 +24,8 @@ Plug 'jreybert/vimagit'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'jyelloz/vim-dts-indent'
 "Plug 'kamykn/spelunker.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'kshenoy/vim-signature'
@@ -46,7 +48,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/matchit.zip'
@@ -183,6 +185,8 @@ au FileType python set shiftwidth=4 tabstop=2 softtabstop=2 expandtab
 au FileType sh set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 au FileType c,cpp,make,ld set shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au FileType json set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au FileType dts set shiftwidth=8 tabstop=8 softtabstop=8 expandtab
+au FileType kconfig set shiftwidth=8 tabstop=8 softtabstop=8 expandtab
 " }}}
 
 " airblade/vim-gitgutter {{{
@@ -246,9 +250,21 @@ autocmd BufWritePost * GitGutter
 " NeoSolarized {{{
 " let g:gruvbox_italic=1
 " let g:gruvbox_termcolors=16
-color gruvbox
 " hi cursorline ctermbg=8
-hi colorcolumn ctermbg=23
+" hi colorcolumn ctermbg=23
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_contrast_light="hard"
+let g:gruvbox_improved_warnings=1
+color gruvbox
+
+" }}}
+
+" EasyAlign {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " }}}
 
 " NeoSolarized {{{
@@ -471,7 +487,7 @@ let g:NERDTrimTrailingWhitespace = 1
 "}}}
 
 " Valloric/YouCompleteMe {{{
-let g:ycm_python_binary_path = 'python'
+let g:ycm_python_binary_path = 'python3'
 let g:ycm_complete_in_strings = 1
 let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_goto_buffer_command = 'horizontal-split'
@@ -498,10 +514,14 @@ let g:vim_markdown_conceal=0
 " vim-syntastic/syntastic {{{
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_c_include_dirs = ['../../include','../include', './include']
 let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_python_pylint_args = '--rcfile=.pylintrc'
+let g:syntastic_cpp_remove_include_errors = 1
+"let g:syntastic_python_pylint_args = '--rcfile=.pylintrc'
+let g:syntastic_c_config_file='.syntastic_c_config_file'
 let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "passive_filetypes": ["asm"] }
