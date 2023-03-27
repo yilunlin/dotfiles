@@ -275,7 +275,7 @@ let g:formatters_json=['jsbeautify_json']
 let g:autoformat_autoindent=0
 let g:autoformat_retab=0
 let g:autoformat_remove_trailing_spaces=0
-noremap <Leader>a :Autoformat<CR>
+noremap <Leader>fa :Autoformat<CR>
 " }}}
 
 " easymotion/vim-easymotion {{{
@@ -348,6 +348,11 @@ noremap <Leader>v :call fzf#vim#buffer_lines(expand('<cword>'))<CR>
 noremap <Leader>t :Tags<CR>
 noremap <Leader>y :call fzf#vim#tags(expand('<cword>'))<CR>
 " }}}
+
+" osc52' {{{
+source ~/dotfiles/vim/autoload/osc52.vim
+vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+"}}}
 
 " rainbow_parentheses.vim{{{
 let g:rbpt_max=16
