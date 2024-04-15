@@ -1,26 +1,34 @@
 [global_config]
+  always_split_with_profile = True
   putty_paste_style = True
-  title_transmit_fg_color = "#f1ebeb"
-  title_transmit_bg_color = "#48483e"
-  title_inactive_fg_color = "#f1ebeb"
-  title_inactive_bg_color = "#76715e"
-
 [keybindings]
-[layouts]
-  [[default]]
-    [[[child1]]]
-      parent = window0
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
-[plugins]
 [profiles]
   [[default]]
-    palette = "#48483e:#dc2566:#8fc029:#d4c96e:#55bcce:#9358fe:#56b7a5:#acada1:#76715e:#fa2772:#a7e22e:#e7db75:#66d9ee:#ae82ff:#66efd5:#cfd0c2"
-    foreground_color = "#f1ebeb"
-    background_color = "#272822"
-    cursor_color = "#f1ebeb"
-    copy_on_selection = True
-    font = Source Code Pro 10
+    background_color = "#282828"
+    backspace_binding = automatic
+    delete_binding = automatic
+    font = Noto Sans 10
+    foreground_color = "#ebdbb2"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
     use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = True
+      fullscreen = False
+      size = 2560, 1275
+      title = tmux -2 a -d
+      last_active_term = 125e3df7-ba22-427d-a21a-3fa3805e4783
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = 125e3df7-ba22-427d-a21a-3fa3805e4783
+[plugins]

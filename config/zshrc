@@ -147,6 +147,7 @@ alias pbpaste='xclip -selection clipboard -o'
 alias xopen='xdg-open'
 alias fd='fdfind'
 alias bat='batcat'
+alias vsc-restart='systemctl --user restart code-server'
 #
 # Key bindings
 
@@ -173,3 +174,7 @@ if [ -f '/usr/local/google/home/yllin/google-cloud-sdk/path.zsh.inc' ]; then sou
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google/home/yllin/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google/home/yllin/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Enable EE CAD tools (go/ee-cad)
+. "$HOME/ee/scripts/edatools"
+

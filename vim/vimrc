@@ -529,6 +529,15 @@ let g:NERDTrimTrailingWhitespace=1
 " vim-airline/vim-airline {{{
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=0
+" fix characters in hterm unaligned on some fonts
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.maxlinenr=' '
+let g:airline_symbols.linenr='%'
+let g:airline_symbols.paste='ρ'
+let g:airline_symbols.branch='B'
+let g:airline_symbols.whitespace=' '
 " }}}
 
 " vim-airline/airline_themes {{{
