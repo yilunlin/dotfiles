@@ -265,9 +265,9 @@ nmap ga <Plug>(EasyAlign)
 " }}}
 
 " Chiel92/vim-autoformat {{{
-let g:formatdef_yapf="'yapf --style=\"{based_on_style:chromium,indent_width:'.&shiftwidth.(&textwidth ? ',column_limit:'.&textwidth : '').',ALLOW_MULTILINE_LAMBDAS: true, I18N_FUNCTION_CALL: func_not__exist}\" -l '.a:firstline.'-'.a:lastline"
+let g:formatdef_yapf="'yapf --style=\"{based_on_style:google,indent_width:'.&shiftwidth.(&textwidth ? ',column_limit:'.&textwidth : '').',ALLOW_MULTILINE_LAMBDAS: true, I18N_FUNCTION_CALL: func_not__exist}\" -l '.a:firstline.'-'.a:lastline"
 let g:formatters_c=['clangformat']
-let g:formatters_python=['yapf']
+let g:formatters_python=['black', 'yapf']
 let g:formatters_javascript=['clangformat']
 let g:formatdef_jsbeautify_json= "'js-beautify --indent-size '.&shiftwidth.' -wrap-line-length 80 --brea-chainged-methods --jslint-happy'"
 let g:formatdef_cmake_format= '"cmake-format - --first-comment-is-literal --tab-size ".shiftwidth()." ".(&textwidth ? "--line-width=".&textwidth : "")'
@@ -339,6 +339,8 @@ command! -bang -nargs=* Rl call fzf#vim#grep('rg --column --line-number --no-hea
 command! -bang -nargs=* Rf call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 command! -bang -nargs=* R call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --color "always" -- '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 command! -bang -nargs=* Rc call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --color "always" -- '.shellescape(<q-args>).expand('<cword>').'| tr -d "\017"', 1, <bang>0)
+command! -bang -nargs=* Rs call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --color "always" -- '.shellescape(<q-args>).expand(GetPartialWord()).'| tr -d "\017"', 1, <bang>0)
+noremap <Leader>p :Files<CR>
 noremap <Leader>p :Files<CR>
 noremap <Leader>o :GFiles<CR>
 noremap <Leader>b :Buffers<CR>
@@ -398,6 +400,12 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 function! CheckBackspace() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! GetPartialWord() abort
+    let l:col = col('.') " Get current column position
+    let l:end_col = matchend(getline('.'), '\k\+', l:col - 1) " Find end of word
+    return strpart(getline('.'), l:col - 1, l:end_col - l:col + 1) 
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -494,7 +502,7 @@ nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 "}}}
 
 " majutsushi/tagbar {{{
-nnoremap <F8> :TagbarToggle<CR>
+nnoremap <S-tab> :TagbarToggle<CR>
 " }}}
 
 " mattn/emmet-vim {{{

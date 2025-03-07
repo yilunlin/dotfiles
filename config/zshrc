@@ -178,3 +178,4 @@ if [ -f '/usr/local/google/home/yllin/google-cloud-sdk/completion.zsh.inc' ]; th
 # Enable EE CAD tools (go/ee-cad)
 . "$HOME/ee/scripts/edatools"
 
+source /etc/bash_completion.d/g4d
